@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      color: #eee;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #6a4c9c;
+      text-align: center;
+      padding: 25px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    nav {
+      background-color: #5a3d85;
+      text-align: center;
+      padding: 12px 0;
+      box-shadow: inset 0 -2px 5px rgba(0,0,0,0.2);
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: background-color 0.10s ease, transform 0.2s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #9b59b6;
+      transform: scale(1.1);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+      margin-bottom: 30px;
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: scale(1.02);
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      color: #e0b3ff;
+      margin-bottom: 20px;
+    }
+
+    .contact-info {
+      font-size: 1.2rem;
+      line-height: 1.7;
+    }
+
+    .contact-info li {
+      margin-bottom: 15px;
+    }
+
+    .contact-info a {
+      color: #dcb0ff;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-info a:hover {
+      color: #ffffff;
+    }
+
+    .emoji {
+      font-size: 1.5rem;
+      margin-right: 10px;
+    }
+
+    iframe {
+      border-radius: 12px;
+      width: 100%;
+      height: 350px;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .hours {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    footer {
+      background-color: #6a4c9c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.95rem;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      nav ul li {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📞 Contact Us</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="about.html">👩🏫 About</a></li>
+      <li><a href="contact.html">💼 Contact</a></li>
+      <li><a href="service.html">📞 Services</a></li>
+      <li><a href="resource.html">📚Resources</a></li>
+      <li><a href="chatboxai.html">🤖Chatbox AI</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="info">
+      <h2>Contact Information</h2>
+      <ul class="contact-info">
+        <li><span class="emoji">📸</span><strong>Instagram:</strong> <a href="https://www.instagram.com/adyanxientyy_" target="_blank" rel="noopener">@adyanxientyy_</a></li>
+        <li><span class="emoji">💬</span><strong>WhatsApp:</strong> <a href="https://wa.me/60192588235" target="_blank" rel="noopener">+6019-2588235</a></li>
+        <li><span class="emoji">📧</span><strong>Email:</strong> <a href="mailto:nadia@uitm.edu.my">nadia@uitm.edu.my</a></li>
+      </ul>
+    </section>
+
+    <section id="location">
+      <h2>📍 Library Location</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.8430197968574!2d103.1340638152627!3d5.329252556083088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304bff683b7dd53d%3A0x9049e3ae13d62c91!2sPerpustakaan%20Negeri%20Terengganu!5e0!3m2!1sen!2smy!4v1684600000000!5m2!1sen!2smy"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      <address style="margin-top: 15px; font-size: 1.1rem; color: #ccc; max-width: 600px; margin-left: auto; margin-right: auto; text-align: center;">
+        <strong>Terengganu State Library</strong><br>
+        Jalan Sultan Zainal Abidin,<br>
+        21000 Kuala Terengganu,<br>
+        Terengganu, Malaysia
+      </address>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Librarian Website UiTM. Built for curious learners! 🎓</p>
+  </footer>
+
+</body>
+</html>

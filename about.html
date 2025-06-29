@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Librarian Biodata</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #fff;
+      --card-bg: #1e1e1e;
+      --highlight: #e0b3ff;
+      --header-footer: #6a4c9c;
+      --nav-bg: #5a3d85;
+      --social-color: #dcb0ff;
+    }
+
+    body.light-mode {
+      --bg-color: #f4f4f4;
+      --text-color: #111;
+      --card-bg: #ffffff;
+      --highlight: #6a4c9c;
+      --header-footer: #b39ddb;
+      --nav-bg: #9575cd;
+      --social-color: #6a4c9c;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    header, footer {
+      background-color: var(--header-footer);
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.7rem;
+      font-weight: 600;
+    }
+
+    nav {
+      background-color: var(--nav-bg);
+      text-align: center;
+      padding: 12px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #9b59b6;
+      transform: scale(1.1);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      z-index: 999;
+      background: white;
+      color: black;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      background-color: var(--card-bg);
+      margin: 30px 0;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      color: var(--highlight);
+      margin-bottom: 15px;
+    }
+
+    .biodata {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .section-content {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .social-links a {
+      margin-right: 15px;
+      text-decoration: none;
+      font-size: 1.4rem;
+      color: var(--social-color);
+      transition: transform 0.2s;
+    }
+
+    .social-links a:hover {
+      color: #ffffff;
+      transform: scale(1.2);
+    }
+
+    footer {
+      background-color: var(--header-footer);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.95rem;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .biodata {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" onclick="toggleTheme()">🌓 Theme</button>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="about.html">👩🏫 About</a></li>
+      <li><a href="contact.html">💼 Contact</a></li>
+      <li><a href="service.html">📞 Services</a></li>
+      <li><a href="resource.html">📚 Resources</a></li>
+      <li><a href="chatboxai.html">🤖 Chatbox AI</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <section class="biodata">
+      <img src="https://i.imgur.com/Cno19KZ.jpeg" alt="Madam Nadiah" class="profile-img" />
+      <div class="section-content">
+        <h2>👩🏫 NURUL NADIAH BINTI MAT ISA</h2>
+        <p><strong>Position:</strong> Librarian, Tengku Mardhiah Library</p>
+        <p><strong>Role:</strong> Responsible for cataloging and organizing digital and physical resources to ensure easy and accurate access for users.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/adyanxientyy_" target="_blank" title="Instagram">📸</a>
+          <a href="mailto:nadia@uitm.edu.my" title="Email">📧</a>
+          <a href="https://wa.me/60192588235" target="_blank" title="WhatsApp">💬</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Librarian Website - Tengku Mardhiah Library 🎓</p>
+  </footer>
+
+  <!-- Script untuk tukar tema -->
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+  </script>
+
+</body>
+</html>

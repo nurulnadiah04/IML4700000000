@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Librarian AI Chatbox</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color, #d3cce3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+    }
+    nav {
+      width: 100%;
+      background: #6a4c9c;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+    .chat-container {
+      width: 380px;
+      height: 640px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    .chat-header {
+      background: #6a4c9c;
+      color: white;
+      padding: 15px;
+      font-weight: 600;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    .typing {
+      font-style: italic;
+      color: #888;
+      padding: 5px 15px;
+    }
+    .chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      background: #f4f4f8;
+    }
+    .message {
+      margin: 10px 0;
+      padding: 10px 15px;
+      border-radius: 15px;
+      max-width: 80%;
+      animation: popin 0.3s ease;
+    }
+    .user {
+      background: #d1c4e9;
+      align-self: flex-end;
+    }
+    .bot {
+      background: #ede7f6;
+      align-self: flex-start;
+    }
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      font-size: 1rem;
+    }
+    .chat-input button {
+      padding: 12px 20px;
+      background: #6a4c9c;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .theme-switcher, .export-btn {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
+      background: #f0f0f0;
+    }
+    .theme-switcher button, .export-btn button {
+      padding: 5px 10px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    @keyframes popin {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul style="list-style: none; margin: 0; padding: 0;">
+      <li style="display: inline; margin: 0 10px;"><a href="index.html">🏠 Home</a></li>
+      <li style="display: inline; margin: 0 10px;"><a href="about.html">👩🏫 About</a></li>
+      <li style="display: inline; margin: 0 10px;"><a href="contact.html">💼 Contact</a></li>
+      <li style="display: inline; margin: 0 10px;"><a href="service.html">📞 Services</a></li>
+      <li style="display: inline; margin: 0 10px;"><a href="resource.html">📚 Resources</a></li>
+      <li style="display: inline; margin: 0 10px;"><a href="chatboxai.html">🤖 Chatbox AI</a></li>
+    </ul>
+  </nav>
+
+  <div class="chat-container">
+    <div class="chat-header">
+      🤖 Librarian AI Chat
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div id="typing" class="typing" style="display:none;">Bot is typing...</div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Ask me anything..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+    <div class="theme-switcher">
+      <button onclick="setTheme('pastel')">🌸 Pastel</button>
+      <button onclick="setTheme('dark')">🌙 Dark</button>
+      <button onclick="setTheme('kid')">🧸 Kid</button>
+      <button onclick="setTheme('library')">📚 Library</button>
+      <button onclick="resetChat()">♻️ Reset</button>
+    </div>
+    <div class="export-btn">
+      <button onclick="exportChat()">📄 Save Chat (PDF)</button>
+    </div>
+  </div>
+
+  <script>
+    let userName = localStorage.getItem('userName') || '';
+    const messages = document.getElementById('chatMessages');
+    const input = document.getElementById('userInput');
+    const typingIndicator = document.getElementById('typing');
+
+    const popSound = new Audio('https://www.soundjay.com/buttons/sounds/button-16.mp3');
+    const whooshSound = new Audio('https://www.soundjay.com/buttons/sounds/button-09.mp3');
+
+    window.onload = () => {
+      const saved = localStorage.getItem('chat');
+      if (saved) messages.innerHTML = saved;
+      if (!userName) {
+        setTimeout(() => {
+          const name = prompt("Hi there! What’s your name?");
+          if (name) {
+            userName = name;
+            localStorage.setItem('userName', name);
+            botReply(`Hi ${name}! I'm your librarian AI. How can I help you today?`);
+          }
+        }, 500);
+      }
+    };
+
+    function addMessage(sender, text) {
+      const msg = document.createElement('div');
+      msg.classList.add('message', sender);
+      msg.innerText = text;
+      messages.appendChild(msg);
+      messages.scrollTop = messages.scrollHeight;
+      localStorage.setItem('chat', messages.innerHTML);
+    }
+
+    function sendMessage() {
+      const text = input.value.trim();
+      if (text) {
+        addMessage('user', text);
+        whooshSound.play();
+        input.value = '';
+        typingIndicator.style.display = 'block';
+        setTimeout(() => botReply(text), 1000);
+      }
+    }
+
+    function botReply(text) {
+      typingIndicator.style.display = 'none';
+      let response = `Sorry ${userName || 'friend'}, I'm still learning. Try asking something else?`;
+      const msg = text.toLowerCase();
+      if (msg.includes("book")) {
+        response = `If you're looking for a book, ${userName || 'you'}, head over to the Services section! 📚`;
+      } else if (msg.includes("hello") || msg.includes("hi")) {
+        response = `Hello ${userName || 'there'}! Welcome! 😊`;
+      } else if (msg.includes("opening hours")) {
+        response = "The library is open from 8 AM to 6 PM, Monday to Friday.";
+      } else if (msg.includes("librarian")) {
+        response = "A librarian helps students find references, information, and library services.";
+      }
+      addMessage('bot', response);
+      popSound.play();
+      speak(response);
+    }
+
+    function speak(text) {
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'en-US';
+      utter.pitch = 1.1;
+      utter.rate = 1;
+      speechSynthesis.speak(utter);
+    }
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key.toLowerCase() === 'v') {
+        startVoiceInput();
+      }
+    });
+
+    function startVoiceInput() {
+      if (!('webkitSpeechRecognition' in window)) {
+        alert('Your browser does not support voice input');
+        return;
+      }
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = 'en-US';
+      recognition.start();
+
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        input.value = transcript;
+        sendMessage();
+      };
+    }
+
+    function setTheme(theme) {
+      const root = document.documentElement;
+      if (theme === 'pastel') root.style.setProperty('--bg-color', '#f9e7f7');
+      else if (theme === 'dark') root.style.setProperty('--bg-color', '#1e1e2f');
+      else if (theme === 'kid') root.style.setProperty('--bg-color', '#ffe082');
+      else root.style.setProperty('--bg-color', '#d3cce3');
+    }
+
+    function resetChat() {
+      messages.innerHTML = '';
+      localStorage.removeItem('chat');
+      localStorage.removeItem('userName');
+    }
+
+    function exportChat() {
+      const chatText = messages.innerText;
+      const blob = new Blob([chatText], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'ai_chat_conversation.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>

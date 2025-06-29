@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Librarian Services - Historical Information</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Fredoka+One&family=Chewy&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Comic Neue', cursive, sans-serif;
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      margin: 0;
+      padding: 0;
+      color: #000000;
+    }
+    header {
+      background-color: #6a4c9c;
+      color: white;
+      text-align: center;
+      padding: 20px 20px 10px 20px;
+      box-shadow: 0 8px 15px rgba(106, 76, 156, 0.4);
+      font-family: 'Fredoka One', cursive;
+      font-size: 2.4rem;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-bottom: 15px;
+    }
+
+    nav a {
+      background-color: #cda4de;
+      color: #1e003e;
+      text-decoration: none;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background-color 0.3s, color 0.3s;
+      box-shadow: 0 4px 8px rgba(205, 164, 222, 0.6);
+    }
+
+    nav a:hover {
+      background-color: #6a4c9c;
+      color: white;
+      box-shadow: 0 6px 12px rgba(106, 76, 156, 0.8);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: #1e003e;
+      border-radius: 20px;
+      padding: 30px 40px;
+      box-shadow: 0 10px 25px rgba(106, 76, 156, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    section h2 {
+      color: #cda4de;
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 3px #5e2974;
+      font-family: 'Chewy', cursive;
+    }
+
+    section p {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #e6d7f0;
+    }
+
+    .info-box {
+      background-color: #4b2a6a;
+      border-left: 8px solid #cda4de;
+      padding: 20px;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: #d8c1ff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(106, 76, 156, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .info-box span {
+      font-size: 2rem;
+      color: #d3bfff;
+    }
+
+    .librarian-img {
+      display: block;
+      margin: 30px auto;
+      max-width: 200px;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+      animation: bounce 3s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .popup {
+      background-color: #ffe0ec;
+      color: #4b2a6a;
+      font-size: 1.1rem;
+      padding: 15px;
+      border-radius: 12px;
+      margin-top: 20px;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    footer {
+      background-color: #6a4c9c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    📚 Librarian Services 🎉
+  </header>
+
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="about.html">👩🏫 About</a>
+    <a href="contact.html">📞 Contact</a>
+    <a href="service.html">💼 Services</a>
+    <a href="resource.html">📚 Resources</a>
+    <a href="chatboxai.html">🤖Chatbox AI</a>
+  </nav>
+
+  <main>
+    <section>
+      <p>
+        Did you know? If you're curious about amazing stories from our country's history, legendary figures or heritage sites — the librarian is here to help!
+      </p>
+      <p>
+        Just ask the librarian, and they'll share fun, easy-to-understand information. Like a history teacher — but way more fun! 😄
+      </p>
+      <img class="librarian-img" src="https://i.imgur.com/peQM4k5.png" alt="Cute Cartoon Librarian">
+      <div class="info-box">
+        <span class="icon-book">📚</span>
+        <div>
+          "A librarian isn’t just someone who manages books, but a guide to knowledge and history! <br> Let’s explore the past together in a fun way!"
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 UiTM Library | Knowledge is Power! 💪
+  </footer>
+
+</body>
+</html>

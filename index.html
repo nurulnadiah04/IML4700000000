@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Librarian Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #fff;
+      --header-color: rgba(106, 76, 156, 0.85);
+      --nav-color: rgba(90, 61, 133, 0.85);
+      --footer-color: rgba(106, 76, 156, 0.85);
+    }
+
+    body.light-mode {
+      --bg-color: #f4f4f4;
+      --text-color: #333;
+      --header-color: #b39ddb;
+      --nav-color: #9575cd;
+      --footer-color: #b39ddb;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      overflow-x: hidden;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    .blur-background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('https://i.imgur.com/C83euWJ.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: blur(8px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      background-color: var(--header-color);
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.7rem;
+      font-weight: 600;
+    }
+
+    nav {
+      background-color: var(--nav-color);
+      text-align: center;
+      padding: 12px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #9b59b6;
+      transform: scale(1.1);
+    }
+
+    main {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      max-width: 700px;
+      margin: 40px auto;
+      border-radius: 12px;
+    }
+
+    main h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    main p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    #quote-box {
+      margin-top: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    #quote-box h3 {
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    #quote-text {
+      font-style: italic;
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    #quote-box button {
+      margin-top: 15px;
+      padding: 8px 16px;
+      border: none;
+      background: #9575cd;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #quote-box button:hover {
+      background: #7e57c2;
+    }
+
+    footer {
+      background-color: var(--footer-color);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      font-size: 0.95rem;
+      z-index: 2;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    .emoji {
+      font-size: 1.5rem;
+      margin-right: 8px;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      z-index: 999;
+      background: #fff;
+      color: #333;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark theme">🌓 Toggle Theme</button>
+
+  <div class="blur-background" role="presentation" aria-hidden="true"></div>
+
+  <div class="content-wrapper">
+
+    <header>
+      <h1><span class="emoji">📚</span>Welcome to the Librarian Website 🎓</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="about.html">👩🏫 About</a></li>
+        <li><a href="contact.html">📞 Contact</a></li>
+        <li><a href="service.html">💼 Services</a></li>
+        <li><a href="resource.html">📚 Resources</a></li>
+        <li><a href="chatboxai.html">🤖 Chatbox AI</a></li>
+      </ul>
+    </nav>
+
+    <main id="utama">
+      <h2><span class="emoji">👩💼</span>Discover the World of Librarians</h2>
+      <p>Hello friends! 👋🌟📖 Welcome to a world filled with books, knowledge, and helpful librarians ready to guide you!</p>
+
+      <div id="quote-box">
+        <h3>📖 Quote of the Day:</h3>
+        <p id="quote-text">"Reading is dreaming with open eyes."</p>
+        <button onclick="newQuote()">🔄 New Quote</button>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Tengku Mardhiah Librarian Website 🎓</p>
+    </footer>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+
+    const quotes = [
+      "A library is not a luxury but one of the necessities of life. – Henry Ward Beecher",
+      "The only thing that you absolutely have to know is the location of the library. – Albert Einstein",
+      "Reading is essential for those who seek to rise above the ordinary. – Jim Rohn",
+      "So many books, so little time. – Frank Zappa",
+      "Books are a uniquely portable magic. – Stephen King",
+      "Librarians are tour-guides for all of knowledge. – Patrick Ness",
+      "A book is a dream you hold in your hands. – Neil Gaiman",
+      "Once you learn to read, you will be forever free. – Frederick Douglass"
+    ];
+
+    function newQuote() {
+      const random = Math.floor(Math.random() * quotes.length);
+      document.getElementById('quote-text').innerText = `"${quotes[random]}"`;
+    }
+  </script>
+
+</body>
+</html>
